@@ -121,6 +121,30 @@
 .nkd .nkd-ask{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:14px;border:1px solid rgba(159,208,246,.4);background:rgba(159,208,246,.07);font-size:16.5px;color:var(--nk-ink)}
 .nkd .nkd-ask .q{color:var(--nk-ac);font-weight:600;flex:none}
 .nkd .nkd-ask .ans{color:var(--nk-mut)}
+
+/* -- Bìa Nguyễn Kim Đô -- */
+.nkd-cover .cv{position:absolute;inset:0;overflow:hidden;background:radial-gradient(1100px 620px at 50% 38%,#34477f 0%,#1a2560 38%,#060b38 70%,#030628 100%);font-family:Roboto,system-ui,sans-serif;color:#fff}
+.nkd-cover .cv-glow{position:absolute;left:50%;top:150px;width:1300px;height:420px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(140,170,255,.32),rgba(140,170,255,0));filter:blur(8px)}
+.nkd-cover .cv-stars{position:absolute;inset:0;opacity:.75;background-image:radial-gradient(2px 2px at 520px 260px,#cfe0ff 50%,transparent 51%),radial-gradient(2px 2px at 610px 300px,#cfe0ff 50%,transparent 51%),radial-gradient(3px 3px at 1100px 330px,#cfe0ff 50%,transparent 51%),radial-gradient(2px 2px at 1330px 290px,#cfe0ff 50%,transparent 51%),radial-gradient(2px 2px at 1460px 250px,#cfe0ff 50%,transparent 51%),radial-gradient(3px 3px at 760px 380px,#cfe0ff 50%,transparent 51%),radial-gradient(2px 2px at 1240px 410px,#cfe0ff 50%,transparent 51%),radial-gradient(2px 2px at 420px 520px,#cfe0ff 50%,transparent 51%),radial-gradient(2px 2px at 1540px 560px,#cfe0ff 50%,transparent 51%),radial-gradient(2px 2px at 300px 760px,#cfe0ff 50%,transparent 51%),radial-gradient(2px 2px at 1640px 820px,#cfe0ff 50%,transparent 51%),radial-gradient(3px 3px at 980px 230px,#cfe0ff 50%,transparent 51%);animation:cvTw 6s ease-in-out infinite alternate}
+@keyframes cvTw{from{opacity:.45}to{opacity:.85}}
+.nkd-cover .cv-band{position:absolute;left:50%;top:0;width:1500px;height:170px;transform:translateX(-50%);filter:drop-shadow(0 14px 40px rgba(120,160,255,.35))}
+.nkd-cover .cv-band svg{position:absolute;inset:0;width:100%;height:100%}
+.nkd-cover .cv-logos{position:absolute;left:0;right:0;top:0;height:168px;display:flex;align-items:center;justify-content:center;gap:64px}
+.nkd-cover .cv-client{display:flex;align-items:center;gap:20px;color:#5b6483;font-size:19px;line-height:1.25}
+.nkd-cover .cv-client img{width:118px;height:118px;object-fit:contain}
+.nkd-cover .cv-client b{display:block;color:#0d1640;font-size:30px;font-weight:700;letter-spacing:-.01em}
+.nkd-cover .cv-sep{width:2px;height:80px;background:#e3e7f2}
+.nkd-cover .cv-base{display:flex;align-items:center;gap:14px}
+.nkd-cover .cv-base img{height:58px}
+.nkd-cover .cv-base b{font-size:40px;font-weight:700;color:#0d1640;letter-spacing:-.01em}
+.nkd-cover .cv-main{position:absolute;left:0;right:0;top:330px;text-align:center}
+.nkd-cover .cv-pill{display:inline-flex;align-items:center;gap:16px;padding:16px 34px;border-radius:999px;border:1px solid rgba(170,195,255,.38);background:rgba(120,150,230,.16);font-size:30px;font-weight:700;letter-spacing:.005em}
+.nkd-cover .cv-pill i{width:16px;height:16px;border-radius:50%;background:#6FB6FF;box-shadow:0 0 16px #6FB6FF}
+.nkd-cover h1{margin:54px 0 0;font-size:104px;line-height:1.05;font-weight:800;letter-spacing:-.02em;color:#fff}
+.nkd-cover h2{margin:18px 0 0;font-size:58px;line-height:1.15;font-weight:700;background:linear-gradient(90deg,#9FD0F6,#B7A8FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nkd-cover .cv-main p{margin:40px auto 0;max-width:1300px;font-size:27px;line-height:1.5;color:rgba(225,233,255,.78)}
+.nkd-cover .cv-foot{position:absolute;left:120px;right:120px;bottom:64px;display:flex;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(170,195,255,.22);font-size:21px;color:rgba(225,233,255,.66)}
+.nkd-cover .cv-foot b{color:#fff;font-weight:600}
 </style>
 <script>(function(){var m=location.search.match(/[?&]bg=([a-d])\b/);var cur=m?m[1]:'d';function set(v){cur=v;document.documentElement.setAttribute('data-bg',v);if(document.body)document.body.setAttribute('data-bg',v);var t=document.getElementById('bgtag');if(t){t.textContent='Nền '+v.toUpperCase();t.style.opacity=1;clearTimeout(t._h);t._h=setTimeout(function(){t.style.opacity=0},1600)}}
 document.addEventListener('DOMContentLoaded',function(){set(cur);var t=document.createElement('div');t.id='bgtag';t.style.cssText='position:fixed;right:18px;top:14px;z-index:99;font:600 13px/1 Roboto,sans-serif;letter-spacing:.14em;color:#9FD0F6;opacity:0;transition:opacity .4s;pointer-events:none';document.body.appendChild(t)});
@@ -132,8 +156,26 @@ document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKe
 <div id="stage">
 
 <!-- ============ 01 · BÌA ============ -->
-<section class="slide s-p1" data-title="Bìa · Quản trị vận hành thông minh">
-  <div class="solo p1"><iframe class="p1f" data-follow data-src="p1/phan1.html?embed=1&amp;s=1&amp;step=follow" title="Bìa · Quản trị vận hành thông minh" loading="eager"></iframe></div>
+<section class="slide s-p1 nkd-cover" data-title="Bìa · Quản trị vận hành thông minh cho Nguyễn Kim Đô">
+  <div class="cv">
+    <div class="cv-glow"></div>
+    <div class="cv-stars"></div>
+    <div class="cv-band">
+      <svg viewBox="0 0 1500 170" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="cvEdge" x1="0" x2="1"><stop offset="0" stop-color="#6FB6FF" stop-opacity="0"/><stop offset=".3" stop-color="#6FB6FF"/><stop offset=".7" stop-color="#9C8CFF"/><stop offset="1" stop-color="#9C8CFF" stop-opacity="0"/></linearGradient></defs><path d="M0 0H1500C1395 0 1372 36 1340 86C1306 140 1272 168 1196 168H304C228 168 194 140 160 86C128 36 105 0 0 0Z" fill="#fff"/><path d="M160 86C194 140 228 168 304 168H1196C1272 168 1306 140 1340 86" fill="none" stroke="url(#cvEdge)" stroke-width="3"/></svg>
+      <div class="cv-logos">
+        <span class="cv-client"><img src="C%C3%B4ng%20ty%20CP%20Nguy%E1%BB%85n%20Kim%20%C4%90%C3%B4%20logo.jpg" alt="Logo Nguyễn Kim Đô"><span><b>Nguyễn Kim Đô</b>Hệ thống phòng khám</span></span>
+        <span class="cv-sep"></span>
+        <span class="cv-base"><img src="assets/logo/base-mark.png" alt=""><b>Base.vn</b></span>
+      </div>
+    </div>
+    <div class="cv-main">
+      <div class="cv-pill"><i></i>The Intelligent Operation System</div>
+      <h1>Quản trị vận hành thông minh</h1>
+      <h2>cho hệ thống phòng khám Nguyễn Kim Đô</h2>
+      <p>Đề xuất giải pháp CRM: một luồng dữ liệu từ quảng cáo, tư vấn Zalo, đặt lịch khám<br>tới chăm sóc sau bán, với báo cáo tự động theo thời gian thực.</p>
+    </div>
+    <div class="cv-foot"><span>Kính gửi <b>Anh Nam</b> · Công ty CP Nguyễn Kim Đô</span><span>Nghệ An · Hà Nội · Sài Gòn</span><span>Base.vn · Tháng 10/2026</span></div>
+  </div>
 </section>
 
 <!-- ============ 02 · THƯ NGỎ ============ -->
