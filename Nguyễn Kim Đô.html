@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Base 2.0 · Master Deck Bán hàng v1.3</title>
-<meta name="description" content="Master deck bán hàng Base 2.0 Agentic Operating System. 31 slide, mock chạy trong iframe. Không gọi mạng.">
+<title>Base 2.0 · Đề xuất giải pháp CRM · Nguyễn Kim Đô</title>
+<meta name="description" content="Deck đề xuất Base 2.0 cho Công ty CP Nguyễn Kim Đô: giới thiệu Base 2.0, bài toán của khách và giải pháp CRM Lead, Prospector, Pipeline Đặt lịch, Pipeline CSKH, báo cáo tự động.">
 <link rel="icon" href="assets/logo/base-mark.png">
 <link rel="stylesheet" href="assets/fonts/roboto.css">
 <link rel="stylesheet" href="css/deck.css">
@@ -13,6 +13,115 @@
 <link rel="stylesheet" href="css/p8-crm.css">
 <link rel="stylesheet" href="css/p8-ai.css">
 <link rel="stylesheet" href="css/p9.css">
+<link rel="stylesheet" href="css/nl-app.css">
+<style>
+/* ===== Slide riêng cho Nguyễn Kim Đô (tiền tố nkd-) ===== */
+.nkd{--nk-ac:#9FD0F6;--nk-ink:#fff;--nk-mut:rgba(232,238,249,.68);--nk-dim:rgba(232,238,249,.46);--nk-card:rgba(255,255,255,.045);--nk-line:rgba(159,208,246,.22);--nk-bad:#FF8A80;--nk-ok:#7FE0B0}
+.nkd .nkd-body{position:absolute;left:120px;right:120px;font-family:Roboto,system-ui,sans-serif;color:var(--nk-ink)}
+.nkd .nkd-client{position:absolute;right:120px;top:64px;display:flex;align-items:center;gap:16px;color:var(--nk-mut);font:500 17px/1.3 Roboto,sans-serif;text-align:right}
+.nkd .nkd-client img{width:84px;height:84px;border-radius:50%;background:#fff;object-fit:contain;padding:6px;box-shadow:0 0 0 2px rgba(255,214,90,.45)}
+.nkd .nkd-client b{display:block;color:var(--nk-ink);font-size:20px;font-weight:600}
+.nkd .nkd-tag{display:inline-block;font:600 13px/1 Roboto,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--nk-ac);border:1px solid var(--nk-line);border-radius:999px;padding:7px 12px}
+.nkd .nkd-card{background:var(--nk-card);border:1px solid var(--nk-line);border-radius:18px}
+
+/* -- Bài toán -- */
+.nkd .nkd-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.nkd .nkd-stat{padding:20px 26px}
+.nkd .nkd-stat .v{font:700 44px/1.05 Roboto,sans-serif;color:var(--nk-ac);letter-spacing:-.01em}
+.nkd .nkd-stat .l{margin-top:8px;font-size:18px;line-height:1.35;color:var(--nk-mut)}
+.nkd .nkd-stat .l b{color:var(--nk-ink);font-weight:600}
+.nkd .nkd-journey{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-top:30px}
+.nkd .nkd-step{position:relative;display:flex;flex-direction:column;gap:10px}
+.nkd .nkd-step .n{font:600 14px/1 Roboto,sans-serif;letter-spacing:.14em;color:var(--nk-dim)}
+.nkd .nkd-step .t{padding:14px 14px;font-size:18px;line-height:1.3;font-weight:600;min-height:78px;display:flex;align-items:center}
+.nkd .nkd-step .f{padding:10px 12px;border-radius:12px;border:1px dashed rgba(255,138,128,.55);background:rgba(255,138,128,.07);font-size:15px;line-height:1.3;color:var(--nk-mut);min-height:62px}
+.nkd .nkd-step .f b{display:block;color:var(--nk-ink);font-weight:600}
+.nkd .nkd-step:not(:last-child) .t:after{content:"→";position:absolute;right:-12px;top:44px;color:var(--nk-dim);font-size:18px;transform:translateX(50%)}
+.nkd .nkd-cut{margin-top:10px;font-size:16px;color:var(--nk-bad);letter-spacing:.02em}
+.nkd .nkd-pains{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+.nkd .nkd-pain{padding:22px 26px}
+.nkd .nkd-pain .k{font:600 14px/1 Roboto,sans-serif;letter-spacing:.14em;color:var(--nk-bad);text-transform:uppercase}
+.nkd .nkd-pain h3{margin:10px 0 8px;font-size:24px;line-height:1.25;font-weight:600;color:var(--nk-ink)}
+.nkd .nkd-pain p{margin:0;font-size:17px;line-height:1.45;color:var(--nk-mut)}
+.nkd .nkd-pain p b{color:var(--nk-ink);font-weight:600}
+
+/* -- Luồng giải pháp -- */
+.nkd .nkd-flow{display:grid;grid-template-columns:1fr 56px 1fr 56px 1fr 56px 1fr;align-items:stretch}
+.nkd .nkd-stage{padding:24px 24px 22px;display:flex;flex-direction:column}
+.nkd .nkd-stage .hd2{display:flex;align-items:center;gap:14px}
+.nkd .nkd-stage .hd2 img{width:48px;height:48px}
+.nkd .nkd-stage .no{font:600 14px/1 Roboto,sans-serif;letter-spacing:.14em;color:var(--nk-dim)}
+.nkd .nkd-stage .app{font-size:25px;font-weight:700;line-height:1.15;margin-top:4px}
+.nkd .nkd-stage .goal{margin:16px 0 14px;font-size:19px;line-height:1.35;color:var(--nk-ac);font-weight:500}
+.nkd .nkd-stage ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+.nkd .nkd-stage li{position:relative;padding-left:18px;font-size:17px;line-height:1.42;color:var(--nk-mut)}
+.nkd .nkd-stage li:before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;background:var(--nk-ac)}
+.nkd .nkd-stage li b{color:var(--nk-ink);font-weight:600}
+.nkd .nkd-stage.pipe{border-color:rgba(159,208,246,.5);background:rgba(159,208,246,.07)}
+.nkd .nkd-arw{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:0 4px}
+.nkd .nkd-arw .a{font-size:30px;color:var(--nk-ac);line-height:1}
+.nkd .nkd-arw .e{writing-mode:vertical-rl;transform:rotate(180deg);font-size:14px;line-height:1.2;color:var(--nk-dim);letter-spacing:.04em;max-height:300px;text-align:center}
+.nkd .nkd-band{margin-top:22px;padding:18px 26px;display:flex;align-items:center;gap:22px;font-size:19px;line-height:1.4;color:var(--nk-mut)}
+.nkd .nkd-band b{color:var(--nk-ink);font-weight:600}
+.nkd .nkd-band .nkd-tag{flex:none}
+
+/* -- Hai pipeline -- */
+.nkd .nkd-pipe{display:grid;grid-template-columns:250px 1fr;gap:24px;align-items:stretch}
+.nkd .nkd-pipe + .nkd-pipe{margin-top:26px}
+.nkd .nkd-pipe .side{padding:22px 22px}
+.nkd .nkd-pipe .side .k{font:600 14px/1 Roboto,sans-serif;letter-spacing:.14em;color:var(--nk-dim);text-transform:uppercase}
+.nkd .nkd-pipe .side h3{margin:10px 0 10px;font-size:26px;line-height:1.2;font-weight:700;color:var(--nk-ink)}
+.nkd .nkd-pipe .side p{margin:0;font-size:17px;line-height:1.4;color:var(--nk-ac)}
+.nkd .nkd-cols{display:grid;gap:10px}
+.nkd .nkd-col{display:flex;flex-direction:column;border-radius:16px;border:1px solid var(--nk-line);background:var(--nk-card);overflow:hidden}
+.nkd .nkd-col .h{padding:13px 16px;font-size:18px;font-weight:600;line-height:1.25;border-bottom:1px solid var(--nk-line);background:rgba(159,208,246,.08);display:flex;gap:10px;align-items:baseline}
+.nkd .nkd-col .h i{font-style:normal;font:600 13px/1 Roboto,sans-serif;color:var(--nk-dim);letter-spacing:.1em}
+.nkd .nkd-col .b{padding:13px 16px;font-size:15.5px;line-height:1.42;color:var(--nk-mut)}
+.nkd .nkd-col .b b{color:var(--nk-ink);font-weight:600}
+.nkd .nkd-col.win{border-color:rgba(127,224,176,.55)}
+.nkd .nkd-col.win .h{background:rgba(127,224,176,.12)}
+.nkd .nkd-col.lost{border-style:dashed;border-color:rgba(255,138,128,.5)}
+.nkd .nkd-col.lost .h{background:rgba(255,138,128,.08)}
+.nkd .nkd-col .h .st{margin-left:auto;font-size:13px;font-weight:600;letter-spacing:.06em}
+.nkd .nkd-col.win .h .st{color:var(--nk-ok)}
+.nkd .nkd-col.lost .h .st{color:var(--nk-bad)}
+
+/* -- Báo cáo -- */
+.nkd .nkd-rep{display:grid;grid-template-columns:560px 1fr;gap:28px}
+.nkd .nkd-kpis{padding:22px 24px}
+.nkd .nkd-grp{margin-top:14px}
+.nkd .nkd-grp:first-of-type{margin-top:6px}
+.nkd .nkd-grp .k{font:600 13px/1 Roboto,sans-serif;letter-spacing:.14em;color:var(--nk-ac);text-transform:uppercase}
+.nkd .nkd-grp p{margin:6px 0 0;font-size:16.5px;line-height:1.42;color:var(--nk-mut)}
+.nkd .nkd-dims{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;padding-top:16px;border-top:1px solid var(--nk-line)}
+.nkd .nkd-dims span{font-size:15px;padding:6px 12px;border-radius:999px;background:rgba(159,208,246,.12);color:var(--nk-ink)}
+.nkd .nkd-dims em{font-style:normal;font-size:15px;color:var(--nk-dim);padding:6px 0;margin-right:4px}
+.nkd .nkd-dash{padding:20px 24px;display:flex;flex-direction:column;gap:16px}
+.nkd .nkd-dash .top{display:flex;align-items:center;justify-content:space-between;font-size:16px;color:var(--nk-dim)}
+.nkd .nkd-dash .top b{color:var(--nk-ink);font-size:19px;font-weight:600;margin-right:12px}
+.nkd .nkd-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.nkd .nkd-tile{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.05)}
+.nkd .nkd-tile .l{font-size:14.5px;color:var(--nk-mut)}
+.nkd .nkd-tile .v{margin-top:6px;font:700 32px/1 Roboto,sans-serif;color:var(--nk-ink);font-variant-numeric:tabular-nums}
+.nkd .nkd-tile .s{margin-top:6px;font-size:13.5px;color:var(--nk-dim)}
+.nkd .nkd-mid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.nkd .nkd-sub{font-size:15px;color:var(--nk-mut);font-weight:600;margin-bottom:10px}
+.nkd .nkd-fun{display:flex;flex-direction:column;gap:8px}
+.nkd .nkd-fun .r{display:grid;grid-template-columns:120px 1fr 118px;align-items:center;gap:12px;font-size:15px;color:var(--nk-mut)}
+.nkd .nkd-fun .r .tr{height:22px;position:relative}
+.nkd .nkd-fun .r .bar{position:absolute;left:0;top:0;bottom:0;background:#9FD0F6;border-radius:0 4px 4px 0}
+.nkd .nkd-fun .r:hover .bar{background:#C5E4FA}
+.nkd .nkd-fun .r .n{text-align:right;color:var(--nk-ink);font-variant-numeric:tabular-nums}
+.nkd .nkd-fun .r .n i{font-style:normal;color:var(--nk-dim);margin-left:6px}
+.nkd table.nkd-tb{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+.nkd table.nkd-tb th{font-weight:500;color:var(--nk-dim);text-align:right;padding:6px 8px;border-bottom:1px solid var(--nk-line)}
+.nkd table.nkd-tb th:first-child,.nkd table.nkd-tb td:first-child{text-align:left}
+.nkd table.nkd-tb td{padding:8px 8px;text-align:right;color:var(--nk-ink);border-bottom:1px solid rgba(159,208,246,.1)}
+.nkd table.nkd-tb tr:hover td{background:rgba(159,208,246,.06)}
+.nkd .nkd-ask{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:14px;border:1px solid rgba(159,208,246,.4);background:rgba(159,208,246,.07);font-size:16.5px;color:var(--nk-ink)}
+.nkd .nkd-ask .q{color:var(--nk-ac);font-weight:600;flex:none}
+.nkd .nkd-ask .ans{color:var(--nk-mut)}
+</style>
 <script>(function(){var m=location.search.match(/[?&]bg=([a-d])\b/);var cur=m?m[1]:'d';function set(v){cur=v;document.documentElement.setAttribute('data-bg',v);if(document.body)document.body.setAttribute('data-bg',v);var t=document.getElementById('bgtag');if(t){t.textContent='Nền '+v.toUpperCase();t.style.opacity=1;clearTimeout(t._h);t._h=setTimeout(function(){t.style.opacity=0},1600)}}
 document.addEventListener('DOMContentLoaded',function(){set(cur);var t=document.createElement('div');t.id='bgtag';t.style.cssText='position:fixed;right:18px;top:14px;z-index:99;font:600 13px/1 Roboto,sans-serif;letter-spacing:.14em;color:#9FD0F6;opacity:0;transition:opacity .4s;pointer-events:none';document.body.appendChild(t)});
 document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.key==='b'||e.key==='B'){var o='abcd';set(o[(o.indexOf(cur)+1)%4])}});})();</script>
@@ -236,6 +345,260 @@ document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKe
         <div class="app"><img src="assets/icons/drive.svg" alt=""><span><b>Drive</b><em>Lưu trữ</em></span></div>
         <div class="app"><img src="assets/icons/media.svg" alt=""><span><b>Media</b><em>Ảnh và video</em></span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NKĐ 01 · BÀI TOÁN CỦA NGUYỄN KIM ĐÔ ============ -->
+<section class="slide s-split nkd" data-title="Bài toán của Nguyễn Kim Đô · Dữ liệu không thông, báo cáo làm tay">
+  <div class="logo"><img src="assets/logo/base-logo-white.png" alt=""></div>
+  <div class="nkd-client"><span><b>Công ty CP Nguyễn Kim Đô</b>Hệ thống phòng khám · Nghệ An · Hà Nội · Sài Gòn</span><img src="C%C3%B4ng%20ty%20CP%20Nguy%E1%BB%85n%20Kim%20%C4%90%C3%B4%20logo.jpg" alt="Logo Nguyễn Kim Đô"></div>
+  <div class="hd" style="margin-bottom:0">
+    <div class="eyebrow">Bài toán của Nguyễn Kim Đô</div>
+    <h1 style="font-size:50px;margin-bottom:0;max-width:1300px">Data đổ về mỗi ngày, <span class="ac">nhưng dữ liệu không thông<br>và báo cáo vẫn phải làm tay.</span></h1>
+  </div>
+  <div class="nkd-body" style="top:300px">
+    <div class="nkd-stats">
+      <div class="nkd-stat nkd-card"><div class="v">5.000 – 7.000</div><div class="l"><b>data mỗi tháng</b> từ TikTok và Facebook Ads, cao điểm khi kênh TikTok chạy tốt</div></div>
+      <div class="nkd-stat nkd-card"><div class="v">≈ 58</div><div class="l"><b>data mỗi tư vấn viên mỗi ngày</b> lúc cao điểm: khoảng 230 data/ngày chia cho 4 telesale</div></div>
+      <div class="nkd-stat nkd-card"><div class="v">3 cơ sở</div><div class="l"><b>Nghệ An (cơ sở chính), Hà Nội, Sài Gòn</b>, gần 30 nhân sự văn phòng</div></div>
+      <div class="nkd-stat nkd-card"><div class="v">6+ file</div><div class="l"><b>Google Sheet / Excel riêng cho từng bộ phận</b>, cùng Pancake và SaleWork cho Zalo</div></div>
+    </div>
+    <div class="nkd-journey" data-build="1">
+      <div class="nkd-step"><span class="n">01</span><div class="t nkd-card">Khách đăng ký qua Ads</div><div class="f"><b>TikTok · Facebook</b>Form, tin nhắn</div></div>
+      <div class="nkd-step"><span class="n">02</span><div class="t nkd-card">Tư vấn, đặt lịch khám</div><div class="f"><b>Pancake · SaleWork</b>Zalo dùng chung</div></div>
+      <div class="nkd-step"><span class="n">03</span><div class="t nkd-card">Khách đến khám</div><div class="f"><b>Sheet lễ tân</b>Nhập lại từ sheet tư vấn</div></div>
+      <div class="nkd-step"><span class="n">04</span><div class="t nkd-card">Bác sĩ kê đơn, lấy thuốc</div><div class="f"><b>Sheet đơn thuốc</b>Nhập lại lần nữa</div></div>
+      <div class="nkd-step"><span class="n">05</span><div class="t nkd-card">Chuyển sang CSKH</div><div class="f"><b>Sheet CSKH</b>Copy danh sách khách</div></div>
+      <div class="nkd-step"><span class="n">06</span><div class="t nkd-card">Nhắc tái khám, lấy thuốc, trả thuốc</div><div class="f"><b>Sheet CSKH</b>Theo dõi bằng tay</div></div>
+      <div class="nkd-step"><span class="n">07</span><div class="t nkd-card">Kế toán lấy doanh thu, chi phí</div><div class="f"><b>Sheet kế toán</b>Tổng hợp cuối kỳ</div></div>
+    </div>
+    <div class="nkd-cut" data-build="1">✂ Mỗi lần khách chuyển bước là một lần copy-paste sang file khác: tốn thời gian, dễ nhầm, dễ sót, và không ai thấy toàn bộ hành trình của một khách.</div>
+    <div class="nkd-pains">
+      <div class="nkd-pain nkd-card" data-build="2"><div class="k">01 · Thông dữ liệu</div><h3>Mỗi bộ phận một file, nhập tay</h3><p>Hàm Excel chỉ kéo được một phần. Với <b>5.000 đến 7.000 data mỗi tháng</b>, Sheet bị quá tải và không còn kiểm soát được.</p></div>
+      <div class="nkd-pain nkd-card" data-build="3"><div class="k">02 · Thống kê báo cáo</div><h3>Báo cáo đa chiều vẫn làm thủ công</h3><p>Cần đo <b>chi phí, chuyển đổi và hiệu quả từng khâu</b>. Phần mềm cũ phải nhập lại dữ liệu mỗi lần làm báo cáo.</p></div>
+      <div class="nkd-pain nkd-card" data-build="4"><div class="k">03 · Công cụ chưa đúng</div><h3>Đã thử phần mềm, nhưng chưa phải CRM</h3><p>Năm 2024 dùng MISA và Base Work để quản lý công việc: trạng thái khách đổi bằng <b>kéo thả, chuyển thư mục</b>, không có báo cáo tự động.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CRM OPERATION SERVICES (từ bản đầy đủ) ============ -->
+<section class="slide s-section p8c-crm p8c-sec" data-title="CRM Operation Services: Vận hành Bán hàng và Marketing">
+  <div class="logo"><img src="assets/logo/base-logo-white.png" alt=""></div>
+  <div class="txt">
+    <span class="pill-eyebrow">Bộ giải pháp Vận hành Bán hàng và Marketing</span>
+    <h1>CRM <span class="ac">Operation Services</span></h1>
+    <p class="tag">Vận hành Bán hàng và Marketing</p>
+    <p class="lead">Vận hành toàn bộ hoạt động kinh doanh trên một nền tảng, từ điểm chạm đầu tiên đến khi chốt thương vụ, thu tiền và chăm sóc sau bán. Lead, hội thoại, quảng cáo, thương vụ, hợp đồng, đơn hàng và kho liên thông trên cùng một ngữ cảnh.</p>
+  </div>
+  <div class="orbit v6">
+    <div class="halo"></div>
+    <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+    <div class="core"><img src="assets/logo/base-mark.png" alt=""></div>
+    <div class="rg" style="--spd:160s">
+      <span class="ic" style="--rot:-90deg;--rad:300px"><img src="assets/icons/prospector.svg" alt=""></span>
+      <span class="ic" style="--rot:-18deg;--rad:300px"><img src="assets/icons/lead.svg" alt=""></span>
+      <span class="ic" style="--rot:54deg;--rad:300px"><img src="assets/icons/sales.svg" alt=""></span>
+      <span class="ic" style="--rot:126deg;--rad:300px"><img src="assets/icons/contract.svg" alt=""></span>
+      <span class="ic" style="--rot:198deg;--rad:300px"><img src="assets/icons/commerce.svg" alt=""></span>
+    </div>
+    <div class="rg rev" style="--spd:120s">
+      <span class="ic" style="--rot:-45deg;--rad:210px"><img src="assets/icons/inventory.svg" alt=""></span>
+      <span class="ic" style="--rot:45deg;--rad:210px"><img src="assets/icons/success.svg" alt=""></span>
+      <span class="ic" style="--rot:135deg;--rad:210px"><img src="assets/icons/admanager.svg" alt=""></span>
+      <span class="ic" style="--rot:225deg;--rad:210px"><img src="assets/icons/event.svg" alt=""></span>
+    </div>
+    <div class="rg" style="--spd:90s">
+      <span class="ic" style="--rot:-90deg;--rad:120px"><img src="assets/icons/form.svg" alt=""></span>
+      <span class="ic" style="--rot:30deg;--rad:120px"><img src="assets/icons/radar.svg" alt=""></span>
+      <span class="ic" style="--rot:150deg;--rad:120px"><img src="assets/icons/esign.svg" alt=""></span>
+    </div>
+  </div>
+  <!-- năm thẻ hiện bằng MỘT phím (cùng data-build="1"), so le bằng --d -->
+  <div class="cards">
+    <div class="card" data-build="1" style="--d:0s"><div class="icons"><img src="assets/icons/admanager.svg" alt=""><img src="assets/icons/prospector.svg" alt=""><img src="assets/icons/event.svg" alt=""><img src="assets/icons/form.svg" alt=""></div><span class="num">01 · LEAD GENERATION</span><h3>Đổ lead từ mọi kênh</h3><p>Quảng cáo đa kênh, hội thoại Zalo, Facebook, WhatsApp, sự kiện và webform: mọi điểm chạm đều thành lead.</p></div>
+    <div class="card" data-build="1" style="--d:.14s"><div class="icons"><img src="assets/icons/lead.svg" alt=""><img src="assets/icons/radar.svg" alt=""></div><span class="num">02 · LEAD MANAGEMENT</span><h3>Mọi nguồn lead về một chỗ</h3><p>Khử trùng lặp, làm giàu dữ liệu, chấm điểm và phân phối lead theo luật, có SLA theo dõi.</p></div>
+    <div class="card" data-build="1" style="--d:.28s"><div class="icons"><img src="assets/icons/sales.svg" alt=""><img src="assets/icons/contract.svg" alt=""><img src="assets/icons/esign.svg" alt=""></div><span class="num">03 · DEAL MANAGEMENT</span><h3>Chuyển thành deal</h3><p>Pipeline bán hàng, playbook cho từng giai đoạn, hợp đồng sinh ra từ deal và ký điện tử ngay trên điện thoại.</p></div>
+    <div class="card" data-build="1" style="--d:.42s"><div class="icons"><img src="assets/icons/commerce.svg" alt=""><img src="assets/icons/invoice.svg" alt=""><img src="assets/icons/inventory.svg" alt=""></div><span class="num">04 · ORDER AND INVENTORY</span><h3>Đơn hàng, thanh toán và kho</h3><p>Báo giá, đơn hàng, hoá đơn, thu tiền, giữ hàng và xuất kho là một nghiệp vụ liền mạch.</p></div>
+    <div class="card" data-build="1" style="--d:.56s"><div class="icons"><img src="assets/icons/success.svg" alt=""></div><span class="num">05 · CUSTOMER SUCCESS</span><h3>Chăm sóc chủ động</h3><p>Một hồ sơ mỗi khách, kết quả bán hàng chảy ngược về lead và chiến dịch để vòng sau tốt hơn vòng trước.</p></div>
+  </div>
+</section>
+
+<!-- ============ NKĐ 02 · GIẢI PHÁP CỦA BASE · LUỒNG BỐN CHẶNG ============ -->
+<section class="slide s-split nkd" data-title="Giải pháp của Base cho Nguyễn Kim Đô · Lead, Prospector, Pipeline Đặt lịch, Pipeline CSKH">
+  <div class="logo"><img src="assets/logo/base-logo-white.png" alt=""></div>
+  <div class="nkd-client"><span><b>Giải pháp cho Nguyễn Kim Đô</b>CRM Operation Services</span><img src="C%C3%B4ng%20ty%20CP%20Nguy%E1%BB%85n%20Kim%20%C4%90%C3%B4%20logo.jpg" alt="Logo Nguyễn Kim Đô"></div>
+  <div class="hd" style="margin-bottom:0">
+    <div class="eyebrow">Giải pháp của Base cho Nguyễn Kim Đô</div>
+    <h1 style="font-size:50px;margin-bottom:12px;max-width:1300px">Một hồ sơ khách hàng, <span class="ac">một luồng dữ liệu<br>từ quảng cáo tới tái khám.</span></h1>
+    <p class="lead" style="text-align:left;max-width:1300px;font-size:22px">Data chỉ nhập một lần. Khách tự đi sang chặng sau khi có sự kiện thật, không copy-paste giữa các file, không kéo thả.</p>
+  </div>
+  <div class="nkd-body" style="top:352px">
+    <div class="nkd-flow">
+      <div class="nkd-stage nkd-card" data-build="1">
+        <div class="hd2"><img src="assets/icons/lead.svg" alt=""><div><div class="no">01 · HỨNG DATA</div><div class="app">Base Lead</div></div></div>
+        <div class="goal">Data từ Ads tự đổ về, tự chia cho tư vấn viên.</div>
+        <ul>
+          <li><b>Form TikTok, Facebook Ads</b> đổ thẳng vào Base Lead qua webform, Zapier, Make hoặc HTTP API.</li>
+          <li><b>Khử trùng lặp theo số điện thoại</b>, gắn nguồn, chiến dịch và cơ sở khám.</li>
+          <li><b>Tự chia cho 4 telesale</b> theo luật, có SLA gọi lần đầu và điểm ưu tiên.</li>
+        </ul>
+      </div>
+      <div class="nkd-arw" data-build="2"><span class="a">→</span><span class="e">Lead được giao</span></div>
+      <div class="nkd-stage nkd-card" data-build="2">
+        <div class="hd2"><img src="assets/icons/prospector.svg" alt=""><div><div class="no">02 · TƯ VẤN QUA ZALO</div><div class="app">Base Prospector</div></div></div>
+        <div class="goal">Mọi tin nhắn về một hộp thư, gắn đúng hồ sơ khách.</div>
+        <ul>
+          <li><b>Zalo, Messenger, TikTok</b> về một hộp thư, nhiều tư vấn viên cùng xử lý, thay cho Pancake và SaleWork.</li>
+          <li><b>Luồng tự động</b>: chào khách, hỏi tình trạng, gửi lịch trống, phản hồi ngoài giờ.</li>
+          <li><b>AI Agent</b> tóm tắt hội thoại và điền sẵn thông tin vào hồ sơ.</li>
+        </ul>
+      </div>
+      <div class="nkd-arw" data-build="3"><span class="a">→</span><span class="e">Khách đồng ý hẹn</span></div>
+      <div class="nkd-stage nkd-card pipe" data-build="3">
+        <div class="hd2"><img src="assets/icons/sales.svg" alt=""><div><div class="no">03 · BASE SALES</div><div class="app">Pipeline Đặt lịch</div></div></div>
+        <div class="goal">Mục tiêu: khách đến phòng khám.</div>
+        <ul>
+          <li><b>Mỗi khách là một deal</b>: Mới, Đang tư vấn, Đã đặt lịch, Đã đến khám.</li>
+          <li><b>Tự nhắn xác nhận, nhắc lịch</b> trước buổi hẹn bằng Sequences.</li>
+          <li><b>Lễ tân xác nhận khách đến</b> là deal thắng, không ai phải kéo thẻ.</li>
+        </ul>
+      </div>
+      <div class="nkd-arw" data-build="4"><span class="a">→</span><span class="e">Đã khám, kê đơn</span></div>
+      <div class="nkd-stage nkd-card pipe" data-build="4">
+        <div class="hd2"><img src="assets/icons/sales.svg" alt=""><div><div class="no">04 · BASE SALES · SAU BÁN</div><div class="app">Pipeline CSKH</div></div></div>
+        <div class="goal">Mục tiêu: khách dùng hết liệu trình và quay lại.</div>
+        <ul>
+          <li><b>Tự tạo deal CSKH</b> khi deal Đặt lịch thắng, mang theo đơn thuốc và số ngày dùng.</li>
+          <li><b>Hỏi thăm, nhắc lấy thuốc, nhắc tái khám</b> đúng hạn; việc quá hạn hiện đỏ.</li>
+          <li><b>Trả thuốc, ngừng điều trị</b> ghi lý do để đo và cải thiện.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="nkd-band nkd-card" data-build="5"><span class="nkd-tag">Báo cáo tự chạy</span><span>Cả bốn chặng trên một nền dữ liệu nên <b>chi phí Ads, số data, tỉ lệ đặt lịch, tỉ lệ đến khám, doanh thu và tái khám</b> được tính tự động theo <b>kênh, chiến dịch, cơ sở và tư vấn viên</b>. Kế toán đọc doanh thu thẳng từ deal, không nhập lại.</span></div>
+  </div>
+</section>
+
+<!-- ============ 01 · BASE LEAD (từ bản đầy đủ) ============ -->
+<section class="slide s-nlapp g-crm" data-title="Base Lead · Mọi nguồn lead về một chỗ">
+  <div class="nl-top"><span class="bv"><img src="assets/logo/base-mark.png" alt="">Base.vn</span><span>Đội kinh doanh Phan Vũ nhận lead cọc ly tâm và cấu kiện đúc sẵn từ nhiều kênh mỗi ngày.</span><span class="tag">Dữ liệu minh hoạ</span></div>
+  <div class="nl-l"><div class="nl-eye">BASE LEAD</div><h1>Mọi nguồn lead <span class="ac">về một chỗ</span></h1><ol class="nl-steps"><li data-build="0"><span><b>Lead từ mọi nguồn.</b> Landing page, webform, Prospector, Zapier, Make, HTTP API hay nhập tay: nguồn ghi rõ trên từng lead.</span></li><li data-build="1"><span><b>Một bảng, đủ trạng thái.</b> Dịch vụ, chức danh, stage và trạng thái chăm sóc của 52 lead trên một màn hình, lọc và sắp xếp tuỳ ý.</span></li><li data-build="2"><span><b>Điểm A1 đến D4.</b> Mỗi lead có điểm chất lượng để biết gọi ai trước; lead đủ điểm tự thành MQL và chuyển sang Sales.</span></li></ol></div>
+  <div class="nl-mock mock"><iframe data-follow data-src="mocks/app-lead-list.html?auto=0" title="Mọi nguồn lead về một chỗ"></iframe></div>
+</section>
+<section class="slide s-nlapp g-crm" data-title="Base Lead · Hồ sơ lead 360 độ">
+  <div class="nl-top"><span class="bv"><img src="assets/logo/base-mark.png" alt="">Base.vn</span><span>Một lead cọc PHC cho nhà xưởng 4,2 ha tại Bình Dương, từ hội thoại Zalo tới khi chuyển sang Sales.</span><span class="tag">Dữ liệu minh hoạ</span></div>
+  <div class="nl-l"><div class="nl-eye">BASE LEAD</div><h1>Hồ sơ lead <span class="ac">360 độ</span></h1><ol class="nl-steps"><li data-build="0"><span><b>Một màn hình, đủ hành trình.</b> Điểm 87/100, Hot, hạng A1. Pipeline từ Mới từ Prospector tới Marketing Qualified, đã chuyển Sales.</span></li><li data-build="1"><span><b>Công việc và dòng hoạt động.</b> Ghi chú, email, cuộc gọi, cuộc họp cùng nằm trên hồ sơ; việc quá hạn hiện rõ để không lỡ nhịp chăm sóc.</span></li><li data-build="2"><span><b>Làm giàu dữ liệu doanh nghiệp.</b> Công ty, tên miền, email, điện thoại được xác minh; chiến dịch nguồn và người phụ trách gắn sẵn.</span></li></ol></div>
+  <div class="nl-mock mock"><iframe data-follow data-src="mocks/app-lead-360.html?auto=0" title="Hồ sơ lead 360 độ"></iframe></div>
+</section>
+
+<!-- ============ 02 · BASE PROSPECTOR (từ bản đầy đủ) ============ -->
+<section class="slide s-nlapp g-crm" data-title="Base Prospector · Mọi kênh hội thoại về một hộp thư">
+  <div class="nl-top"><span class="bv"><img src="assets/logo/base-mark.png" alt="">Base.vn</span><span>Một khách hỏi giá cọc ly tâm cho công trình nhà xưởng qua live chat trên website Phan Vũ.</span><span class="tag">Dữ liệu minh hoạ</span></div>
+  <div class="nl-l"><div class="nl-eye">BASE PROSPECTOR</div><h1>Mọi kênh hội thoại về <span class="ac">một hộp thư</span></h1><ol class="nl-steps"><li data-build="0"><span><b>Một hộp thư cho mọi kênh.</b> Live chat, Messenger, Telegram và website đổ về một chỗ, phân công cho người hoặc cho AI Agent.</span></li><li data-build="1"><span><b>AI Agent xử lý hội thoại.</b> Trợ lý AI hỏi đủ quy cách, trả lời khách, cập nhật trường dữ liệu và gắn đơn hàng ngay trong hội thoại.</span></li><li data-build="2"><span><b>Ngữ cảnh đi cùng hội thoại.</b> Nguồn, vị trí, người phụ trách, nhãn và hồ sơ khách hàng tiềm năng ở cột phải, ai tiếp nhận cũng đủ thông tin.</span></li></ol></div>
+  <div class="nl-mock mock"><iframe data-follow data-src="mocks/app-prospector-inbox.html?auto=0" title="Mọi kênh hội thoại về một hộp thư"></iframe></div>
+</section>
+<section class="slide s-nlapp g-crm" data-title="Base Prospector · Luồng tự động hoá hội thoại, không cần lập trình">
+  <div class="nl-top"><span class="bv"><img src="assets/logo/base-mark.png" alt="">Base.vn</span><span>Đội kinh doanh và chăm sóc khách hàng Phan Vũ tự dựng các luồng trả lời khách trên mọi kênh hội thoại.</span><span class="tag">Dữ liệu minh hoạ</span></div>
+  <div class="nl-l"><div class="nl-eye">BASE PROSPECTOR</div><h1>Luồng tự động hoá hội thoại, <span class="ac">không cần lập trình</span></h1><ol class="nl-steps"><li data-build="0"><span><b>Mỗi luồng là một kịch bản.</b> Khảo sát hài lòng, form góp ý, chốt đơn cọc online, đặt thiết kế riêng, phản hồi ngoài giờ: kéo thả khối là xong.</span></li><li data-build="1"><span><b>Phạm vi và trạng thái rõ ràng.</b> Luồng chạy trên dịch vụ nào, trực tiếp hay bản nháp, tạm dừng hay huỷ khi nhân viên trả lời; lượt chạy ghi từng dòng.</span></li><li data-build="2"><span><b>Thứ tự là độ ưu tiên.</b> Nhiều luồng chung một trigger thì mỗi sự kiện chỉ chạy một luồng, kéo một dòng để đổi thứ tự.</span></li></ol></div>
+  <div class="nl-mock mock"><iframe data-follow data-src="mocks/app-prospector-flow.html?auto=0" title="Luồng tự động hoá hội thoại, không cần lập trình"></iframe></div>
+</section>
+
+<!-- ============ 03 · BASE SALES (từ bản đầy đủ) ============ -->
+<section class="slide s-nlapp g-crm" data-title="Base Sales · Pipeline bán hàng nhìn là thấy">
+  <div class="nl-top"><span class="bv"><img src="assets/logo/base-mark.png" alt="">Base.vn</span><span>Pipeline cọc ly tâm và cấu kiện đúc sẵn của Phan Vũ cho chủ đầu tư, nhà thầu xây dựng quý 4/2026.</span><span class="tag">Dữ liệu minh hoạ</span></div>
+  <div class="nl-l"><div class="nl-eye">BASE SALES</div><h1>Pipeline bán hàng <span class="ac">nhìn là thấy</span></h1><ol class="nl-steps"><li data-build="0"><span><b>Pipeline theo giai đoạn.</b> QT Bán hàng B2B: 19 deal, tổng 33,55 tỷ. Mỗi cột có giá trị và tỷ trọng, biết ngay tiền đang nằm ở đâu.</span></li><li data-build="1"><span><b>Thẻ deal đủ ngữ cảnh.</b> Khách hàng, người liên hệ, owner, giá trị, số ngày ở giai đoạn và nhãn Khẩn cấp, Ưu tiên.</span></li><li data-build="2"><span><b>Một pipeline, đủ công cụ.</b> Deals, Forecast, Activity logs, SLAs và Duplications nằm ngay bên cạnh pipeline.</span></li></ol></div>
+  <div class="nl-mock mock"><iframe data-follow data-src="mocks/app-sales-pipeline.html?auto=0" title="Pipeline bán hàng nhìn là thấy"></iframe></div>
+</section>
+<section class="slide s-nlapp g-crm" data-title="Base Sales · Một deal, trọn hành trình">
+  <div class="nl-top"><span class="bv"><img src="assets/logo/base-mark.png" alt="">Base.vn</span><span>Deal cọc PHC D500 cho nhà xưởng của Thuận Hưng Phát, đi từ lead A1 tới báo giá trên cùng một màn hình.</span><span class="tag">Dữ liệu minh hoạ</span></div>
+  <div class="nl-l"><div class="nl-eye">BASE SALES</div><h1>Một deal, <span class="ac">trọn hành trình</span></h1><ol class="nl-steps"><li data-build="0"><span><b>Thanh giai đoạn và xác suất.</b> Deal Thuận Hưng Phát 2,46 tỷ đang ở Báo giá, xác suất 75%, On track, owner rõ ràng.</span></li><li data-build="1"><span><b>Action plan.</b> Tasks và todos có hạn và người làm; việc quá hạn hiện đỏ, việc xong gạch đi.</span></li><li data-build="2"><span><b>Work stream và Smart Ops.</b> Note, Email, Call, Meeting, Quote, Order ngay trong deal; Automations, Sequences, SLAs, Agent flows chạy phía sau.</span></li></ol></div>
+  <div class="nl-mock mock"><iframe data-follow data-src="mocks/app-deal.html?auto=0" title="Một deal, trọn hành trình"></iframe></div>
+</section>
+
+<!-- ============ NKĐ 03 · HAI PIPELINE TRÊN BASE SALES ============ -->
+<section class="slide s-split nkd" data-title="Nguyễn Kim Đô · Hai pipeline trên Base Sales: Đặt lịch và CSKH sau bán">
+  <div class="logo"><img src="assets/logo/base-logo-white.png" alt=""></div>
+  <div class="nkd-client"><span><b>Giải pháp cho Nguyễn Kim Đô</b>Base Sales · hai pipeline</span><img src="C%C3%B4ng%20ty%20CP%20Nguy%E1%BB%85n%20Kim%20%C4%90%C3%B4%20logo.jpg" alt="Logo Nguyễn Kim Đô"></div>
+  <div class="hd" style="margin-bottom:0">
+    <div class="eyebrow">Base Sales · Cấu hình cho Nguyễn Kim Đô</div>
+    <h1 style="font-size:50px;margin-bottom:12px;max-width:1300px">Hai pipeline, <span class="ac">trạng thái tự đổi theo sự kiện thật.</span></h1>
+    <p class="lead" style="text-align:left;max-width:1300px;font-size:22px">Cuộc gọi, tin nhắn Zalo, lịch hẹn, lễ tân xác nhận, đơn thuốc: mỗi sự kiện đẩy khách sang bước tiếp theo bằng Automations và Sequences.</p>
+  </div>
+  <div class="nkd-body" style="top:352px">
+    <div class="nkd-pipe" data-build="1">
+      <div class="side nkd-card"><div class="k">Pipeline 1</div><h3>Đặt lịch khám</h3><p>Mục tiêu: khách đến phòng khám. Chủ sở hữu: 4 tư vấn viên.</p></div>
+      <div class="nkd-cols" style="grid-template-columns:repeat(4,1fr) .9fr">
+        <div class="nkd-col"><div class="h"><i>01</i>Data mới</div><div class="b"><b>Tự tạo</b> khi Base Lead giao data cho tư vấn viên. SLA gọi lần đầu, quá hạn thì cảnh báo hoặc chia lại.</div></div>
+        <div class="nkd-col"><div class="h"><i>02</i>Đang tư vấn</div><div class="b"><b>Tự chuyển</b> khi có cuộc gọi hoặc tin nhắn Zalo đầu tiên. Hội thoại hiện ngay trên deal.</div></div>
+        <div class="nkd-col"><div class="h"><i>03</i>Đã đặt lịch</div><div class="b"><b>Tự chuyển</b> khi chốt cơ sở, ngày giờ khám. Tự nhắn xác nhận và nhắc lịch trước buổi hẹn.</div></div>
+        <div class="nkd-col win"><div class="h"><i>04</i>Đã đến khám<span class="st">THẮNG</span></div><div class="b"><b>Lễ tân xác nhận</b> khách đến, deal thắng. Tự mở deal ở Pipeline CSKH.</div></div>
+        <div class="nkd-col lost"><div class="h">Không thành<span class="st">THUA</span></div><div class="b">Không liên lạc được, không đến, chưa có nhu cầu: <b>lý do chuẩn hoá</b> để báo cáo.</div></div>
+      </div>
+    </div>
+    <div class="nkd-pipe" data-build="2">
+      <div class="side nkd-card"><div class="k">Pipeline 2</div><h3>CSKH sau bán</h3><p>Mục tiêu: khách dùng hết liệu trình và quay lại. Chủ sở hữu: bộ phận CSKH.</p></div>
+      <div class="nkd-cols" style="grid-template-columns:repeat(5,1fr) .9fr">
+        <div class="nkd-col"><div class="h"><i>01</i>Đã kê đơn</div><div class="b"><b>Tự tạo</b> từ deal Đặt lịch, mang theo bác sĩ, đơn thuốc, số ngày dùng và giá trị.</div></div>
+        <div class="nkd-col"><div class="h"><i>02</i>Hỏi thăm</div><div class="b"><b>Sequence</b> hỏi thăm sau vài ngày dùng thuốc, giao việc cho CSKH.</div></div>
+        <div class="nkd-col"><div class="h"><i>03</i>Nhắc lấy thuốc</div><div class="b"><b>Tự nhắc</b> trước ngày hết thuốc. Khách lấy thêm là doanh thu mới trên deal.</div></div>
+        <div class="nkd-col"><div class="h"><i>04</i>Nhắc tái khám</div><div class="b"><b>Theo lịch bác sĩ hẹn.</b> Việc quá hạn hiện đỏ, không sót khách.</div></div>
+        <div class="nkd-col win"><div class="h"><i>05</i>Tái khám<span class="st">THẮNG</span></div><div class="b">Khách quay lại khám hoặc mua tiếp liệu trình. <b>Kế toán đọc doanh thu</b> từ deal.</div></div>
+        <div class="nkd-col lost"><div class="h">Dừng<span class="st">THUA</span></div><div class="b">Trả thuốc, ngừng điều trị: <b>ghi lý do</b> để cải thiện.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NKĐ 04 · BÁO CÁO TỰ ĐỘNG ============ -->
+<section class="slide s-split nkd" data-title="Nguyễn Kim Đô · Báo cáo tự động: cấu hình một lần, số liệu tự chạy mỗi ngày">
+  <div class="logo"><img src="assets/logo/base-logo-white.png" alt=""></div>
+  <div class="nkd-client"><span><b>Giải pháp cho Nguyễn Kim Đô</b>Báo cáo phễu Ads tới tái khám</span><img src="C%C3%B4ng%20ty%20CP%20Nguy%E1%BB%85n%20Kim%20%C4%90%C3%B4%20logo.jpg" alt="Logo Nguyễn Kim Đô"></div>
+  <div class="hd" style="margin-bottom:0">
+    <div class="eyebrow">Báo cáo tự động</div>
+    <h1 style="font-size:50px;margin-bottom:12px;max-width:1300px">Cấu hình chỉ số một lần, <span class="ac">số liệu tự chạy mỗi ngày.</span></h1>
+    <p class="lead" style="text-align:left;max-width:1300px;font-size:22px">Vì dữ liệu đi trên một luồng, báo cáo không cần nhập lại: mỗi cuộc gọi, lịch hẹn và đơn thuốc đã là một con số.</p>
+  </div>
+  <div class="nkd-body nkd-rep" style="top:352px">
+    <div class="nkd-kpis nkd-card" data-build="1">
+      <div class="nkd-grp"><div class="k">Marketing</div><p>Chi phí quảng cáo, số data, giá mỗi data, data trùng, theo kênh và chiến dịch.</p></div>
+      <div class="nkd-grp"><div class="k">Tư vấn, đặt lịch</div><p>Tốc độ gọi lần đầu, tỉ lệ liên hệ được, tỉ lệ đặt lịch, lý do thất bại, theo tư vấn viên.</p></div>
+      <div class="nkd-grp"><div class="k">Phòng khám</div><p>Tỉ lệ đến khám, khách không đến, chi phí mỗi khách đến khám, theo cơ sở và bác sĩ.</p></div>
+      <div class="nkd-grp"><div class="k">CSKH sau bán</div><p>Tỉ lệ lấy thuốc lại, tỉ lệ tái khám, khách trả thuốc, việc chăm sóc quá hạn.</p></div>
+      <div class="nkd-grp"><div class="k">Doanh thu</div><p>Doanh thu khám và thuốc, doanh thu trên chi phí quảng cáo (ROAS), giá trị mỗi khách.</p></div>
+      <div class="nkd-dims"><em>Lọc theo</em><span>Kênh</span><span>Chiến dịch</span><span>Cơ sở</span><span>Tư vấn viên</span><span>Bác sĩ</span><span>Ngày · Tuần · Tháng</span></div>
+    </div>
+    <div class="nkd-dash nkd-card" data-build="2">
+      <div class="top"><span><b>Phễu tháng · Toàn hệ thống</b>3 cơ sở · TikTok và Facebook</span><span class="nkd-tag">Dữ liệu minh hoạ</span></div>
+      <div class="nkd-tiles">
+        <div class="nkd-tile"><div class="l">Chi phí quảng cáo</div><div class="v">499,2 tr</div><div class="s">80.000 đ mỗi data</div></div>
+        <div class="nkd-tile"><div class="l">Data về</div><div class="v">6.240</div><div class="s">TikTok 3.680 · Facebook 2.560</div></div>
+        <div class="nkd-tile"><div class="l">Khách đến khám</div><div class="v">1.030</div><div class="s">485.000 đ mỗi khách</div></div>
+        <div class="nkd-tile"><div class="l">Doanh thu</div><div class="v">2,46 tỷ</div><div class="s">ROAS 4,9 lần</div></div>
+      </div>
+      <div class="nkd-mid">
+        <div>
+          <div class="nkd-sub">Phễu chuyển đổi, tính trên data về</div>
+          <div class="nkd-fun">
+            <div class="r" title="Data về: 6.240 (100%)"><span>Data về</span><span class="tr"><span class="bar" style="width:100%"></span></span><span class="n">6.240<i>100%</i></span></div>
+            <div class="r" title="Liên hệ được: 4.870 (78,0%)"><span>Liên hệ được</span><span class="tr"><span class="bar" style="width:78%"></span></span><span class="n">4.870<i>78,0%</i></span></div>
+            <div class="r" title="Đã đặt lịch: 1.560 (25,0%)"><span>Đã đặt lịch</span><span class="tr"><span class="bar" style="width:25%"></span></span><span class="n">1.560<i>25,0%</i></span></div>
+            <div class="r" title="Đến khám: 1.030 (16,5%)"><span>Đến khám</span><span class="tr"><span class="bar" style="width:16.5%"></span></span><span class="n">1.030<i>16,5%</i></span></div>
+            <div class="r" title="Lấy thuốc: 820 (13,1%)"><span>Lấy thuốc</span><span class="tr"><span class="bar" style="width:13.1%"></span></span><span class="n">820<i>13,1%</i></span></div>
+          </div>
+        </div>
+        <div>
+          <div class="nkd-sub">Theo cơ sở</div>
+          <table class="nkd-tb">
+            <thead><tr><th>Cơ sở</th><th>Data</th><th>Đặt lịch</th><th>Đến khám</th><th>Doanh thu</th></tr></thead>
+            <tbody>
+              <tr><td>Nghệ An</td><td>3.120</td><td>26,3%</td><td>560</td><td>1,34 tỷ</td></tr>
+              <tr><td>Hà Nội</td><td>1.870</td><td>24,1%</td><td>290</td><td>0,69 tỷ</td></tr>
+              <tr><td>Sài Gòn</td><td>1.250</td><td>23,2%</td><td>180</td><td>0,43 tỷ</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="nkd-ask" data-build="3"><span class="q">✦ Hỏi Copilot</span><span>“Tuần này TikTok ở Nghệ An, chi phí mỗi khách đến khám là bao nhiêu?”</span><span class="ans">Trả lời ngay từ dữ liệu thật, không cần chờ tổng hợp.</span></div>
     </div>
   </div>
 </section>
